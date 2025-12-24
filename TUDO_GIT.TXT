@@ -1,0 +1,47 @@
+COMANDOS GIT
+
+CONCEITOS IMPORTANTES
+
+Changes to be committed
+Arquivos que já passaram pelo git add e vão entrar no próximo commit.
+Essas versões dos arquivos serão enviadas ao GitHub quando você der git push (depois do commit).
+
+Changes not staged for commit
+Os arquivos foram modificados, mas ainda não passaram pelo git add.
+Não entram no commit se você commitar agora.
+As modificações existem só no seu computador e não serão enviadas ao GitHub no próximo push.
+
+Untracked files
+Arquivos novos, que o Git ainda não conhece.
+Só entram no controle de versão se você usar git add.
+Enquanto isso, o Git ignora esses arquivos.
+
+
+
+git status (mostra o status dos git)
+As mudanças do projeto podem ser verificadas com o git status;
+Este comando é utilizado muito frequentemente;
+Aqui são mapeadas todas as alterações do projeto;
+Como arquivos não monitorados e arquivos modificados;
+Podemos também dizer que é a diferença do que já está enviado ao servidor ou projeto salvo.
+
+git init (cria o arquivo .git)
+
+git add (adiciona o arquivo no git) - “seleciona”
+Podemos adicionar um arquivo específico ou diversos de uma vez só;
+Somente adicionando arquivos eles serão monitorados pelo git;
+Ou seja, se não for adicionar ele não estará no controle de versão;
+É interessante utilizar este comando de tempos em tempos para não perder algo por descuido.
+
+git commit -m (git de mensagem) - “salva”
+
+git push -u (atualiza o repositório) “envia”
+
+git branch -M main (cria a branch principal)
+
+git remote add origin (origem do repositório)
+
+
+git remote rm origin (remove a origin)
+
+git remote -v (mostra a origin atual)
