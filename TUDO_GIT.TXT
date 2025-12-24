@@ -37,8 +37,15 @@ Ou seja, se não for adicionar ele não estará no controle de versão;
 É interessante utilizar este comando de tempos em tempos para não perder algo por descuido.
 
 - git commit -m (git de mensagem) - “salva”
+As alterações salvas do projeto são realizadas por: git commit;
+Podemos commitar arquivo específicos ou varios de uma vez com a flag -a;
+É uma boa prática enviar umar mensagem a cada commit, com as alterações que foram feitas;
+A mensagem pode ser adicionada com a flag -a;
 
 - git push -u (atualiza o repositório) “envia”
+Quando finalizamos uma funcionalidade nova, enviamos o codigo ao repositório remoto, que é código-fonte;
+Esta ação e feita pelo git push;
+Apos esta ação, o código do servidor será atualizado baseando-se no código local enviado;
 
 - git branch -M main (cria a branch principal)
 
@@ -47,3 +54,48 @@ Ou seja, se não for adicionar ele não estará no controle de versão;
 - git remote rm origin (remove a origin)
 
 - git remote -v (mostra a origin atual)
+
+
+
+
+
+
+MACETES
+
+ - M1 - (O git usa o Vim como padrão)
+Se você der um commit -a e não colocar uma mensagem, aparecera algo como:
+
+# Please enter the commit message for your changes. Lines starting
+# with '#' will be ignored, and an empty message aborts the commit.
+#
+# On branch master
+# Changes to be committed:
+#       new file:   CSS/style.css
+#       new file:   b.txt
+#       new file:   index.html
+#       new file:   teste.txt
+#
+~   
+
+O que fazer?
+# será ignorado pelo git
+~ indica linhas vazias
+1 - Pressione a tecla 'i'; - Coloca o Vim em modo de edição de texto. (Vim é um editor de texto dentro do terminal)
+Você deve escrever acima do primeiro #;
+
+2 - Digite a mensagem do commit
+
+3 - Pressione ESC - Sai do modo de edição;
+
+4 - Digite :wq - O 'w' salva(write) e o 'q' sai(quit);
+
+5- commit finalizado;
+
+Ou
+
+Para cancelar o commit:
+1 - Pressione ESC;
+2- Digite :q!
+3 - Enter.
+
+
