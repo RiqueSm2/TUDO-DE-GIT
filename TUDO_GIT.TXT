@@ -1,4 +1,4 @@
-COMANDOS GIT
+
 
 CONCEITOS IMPORTANTES
 
@@ -18,30 +18,32 @@ Enquanto isso, o Git ignora esses arquivos.
 
 
 
-git status (mostra o status dos git)
+
+COMANDOS GIT
+
+- git status (mostra o status dos git)
 As mudanças do projeto podem ser verificadas com o git status;
 Este comando é utilizado muito frequentemente;
 Aqui são mapeadas todas as alterações do projeto;
 Como arquivos não monitorados e arquivos modificados;
 Podemos também dizer que é a diferença do que já está enviado ao servidor ou projeto salvo.
 
-git init (cria o arquivo .git)
+- git init (cria o arquivo .git)
 
-git add (adiciona o arquivo no git) - “seleciona”
+- git add (adiciona o arquivo no git) - “seleciona”
 Podemos adicionar um arquivo específico ou diversos de uma vez só;
 Somente adicionando arquivos eles serão monitorados pelo git;
 Ou seja, se não for adicionar ele não estará no controle de versão;
 É interessante utilizar este comando de tempos em tempos para não perder algo por descuido.
 
-git commit -m (git de mensagem) - “salva”
+- git commit -m (git de mensagem) - “salva”
 
-git push -u (atualiza o repositório) “envia”
+- git push -u (atualiza o repositório) “envia”
 
-git branch -M main (cria a branch principal)
+- git branch -M main (cria a branch principal)
 
-git remote add origin (origem do repositório)
+- git remote add origin (origem do repositório)
 
+- git remote rm origin (remove a origin)
 
-git remote rm origin (remove a origin)
-
-git remote -v (mostra a origin atual)
+- git remote -v (mostra a origin atual)
