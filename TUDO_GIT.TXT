@@ -1,4 +1,4 @@
-Palavras-chave: Status, criar, adicionar, salvar, enviar, sincronizar, clonar, remover, log, mover, renomear, vim, desfazer;
+Palavras-chave: Status, criar, adicionar, salvar, enviar, sincronizar, clonar, remover, log, mover, renomear, vim, desfazer, ignorar;
 
 
 CONCEITOS IMPORTANTES
@@ -87,12 +87,22 @@ Com o git mv podemos renomear arquivos e mover arquivos de pastas;
 E isso fará com que este novo arquivo seja monitoriado pelo git;
 O arquivo anterior sera excluido.
 
--git checkout -- (nome do arquivo) PC: desfazer
+-git checkout (nome do arquivo) PC: desfazer
 O arquivo modificado pode ser retornado ao estado original (estado que o arquivo esta no repositório);
 Apos a utilização do mesmo, o arquivo sai do staging (git add);
 Caso seja feita uma proxima alteração, ele entra em staging novamente.
 Atenção: O arquivo modificado será perdido, ou seja, as alterações feitas serão descartadas.
 
+git reset --hard origin/main (Volta a versão que esta no repositório)PC: desfazer
+Todas as alterações commitadas e também as pendentes seão excluidas;
+Ao contrario do git checkout que desfaz apenas o arquivo do staging, o git reset --hard desfaz tudo, inclusive commits;
+
+- .gitignore PC: ignorar
+Devemos criar um arquivo chamado .gitignore para ignorar arquivos no git;
+Uma tecnica muito utilizada é ignorar arquivos do projeto;
+Devemos inserir um arquivo chamado .gitignore na raiz do projeto;
+Nele podemos inserir todos os arquivos qeu não devem entrar no versionamento;
+Isso é util para arquivos gerados automaticamente ou arquivos que contêm informações sensíveis (senhas, chaves de API, etc).
 
 
 
@@ -136,5 +146,11 @@ Para cancelar o commit:
 1 - Pressione ESC;
 2- Digite :q!
 3 - Enter.
+
+
+
+
+
+
 
 
