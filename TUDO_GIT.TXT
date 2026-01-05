@@ -1,3 +1,6 @@
+Palavras-chave: Status, criar, adicionar, salvar, enviar, sincronizar, clonar, remover, log, mover, renomear, vim, desfazer;
+
+
 CONCEITOS IMPORTANTES
 
 Changes to be committed
@@ -19,7 +22,7 @@ Enquanto isso, o Git ignora esses arquivos.
 
 COMANDOS GIT
 
-- git status (mostra o status dos git)
+- git status (mostra o status dos git) PC: Status
 As mudanças do projeto podem ser verificadas com o git status;
 Este comando é utilizado muito frequentemente;
 Aqui são mapeadas todas as alterações do projeto;
@@ -27,36 +30,36 @@ Como arquivos não monitorados e arquivos modificados;
 Podemos também dizer que é a diferença do que já está enviado ao servidor ou projeto salvo.
 
 
-- git init (cria o arquivo .git)
+- git init (cria o arquivo .git) -PC: criar
 
 
-- git add (adiciona o arquivo no git) - “seleciona”
+- git add (adiciona o arquivo no git) - “seleciona” -PC: adicionar
 Podemos adicionar um arquivo específico ou diversos de uma vez só;
 Somente adicionando arquivos eles serão monitorados pelo git;
 Ou seja, se não for adicionar ele não estará no controle de versão;
 É interessante utilizar este comando de tempos em tempos para não perder algo por descuido.
 
 
-- git commit -m (git de mensagem) - “salva”
+- git commit -m (mensagem) - “salva” -PC: salvar
              -a (Pula o git add - apenas para arquivos que ja estao versionados)
 As alterações salvas do projeto são realizadas por: git commit;
 Podemos commitar arquivo específicos ou varios de uma vez com a flag -a;
 É uma boa prática enviar umar mensagem a cada commit, com as alterações que foram feitas
 
 
-- git push -u (atualiza o repositório) “envia”
+- git push -u (atualiza o repositório) “envia” -PC: enviar
 Quando finalizamos uma funcionalidade nova, enviamos o codigo ao repositório remoto, que é código-fonte;
 Esta ação e feita pelo git push;
 Apos esta ação, o código do servidor será atualizado baseando-se no código local enviado;
 
 
-- git pull  
+- git pull (sincorniza o repositório remoto com o local) “sincroniza” -PC: sincronizar
 É comum tambem ter que sicronizar o local com as mudanças do remoto, esta ação é feita pelo git pull.
 Apos o comando, serão buscada atualizações, se econtradas elas serão unidas ao código atual existente na nossa maquina.
 Você pode baixar novos arquivos e alterações feitas por outros desenvolvedores.
 
 
--git clone (Colocar o link do repositório remoto na frente.)
+-git clone (Colocar o link do repositório remoto na frente.) PC: clonar
 O ato de baixar um repositório remoto para o seu computador é chamado de clonar repositório;
 Passando a referencia do repositório remoto, o git clone baixa todo o conteúdo do repositório para o seu computador;    
 Este comando é utilizado quando entramos em um novo porjeto, por exemplo.
@@ -70,10 +73,25 @@ Este comando é utilizado quando entramos em um novo porjeto, por exemplo.
 - git remote -v (mostra a origin atual)
 
 
-- git rm
+-git rm (nome do arquivo) PC: remover
 Os arquivos podem ser deletados da monitoração do git com o comando git rm;
 Apos deletar um arquivo do git, ele não terá mais suas ataulizações consideradas pelo git;
 Apenas quando for adicionado novamente com o git add.
+
+-git log PC: log
+Podemos acessar um log de modificações feitas no projeto com o git log;
+Voce receberá um informação dos commits realizados no projeto até então.
+
+-git mv (nome do arquivo antigo) (nome do arquivo novo ou diretorio pasta nova) PC: mover, renomear
+Com o git mv podemos renomear arquivos e mover arquivos de pastas;
+E isso fará com que este novo arquivo seja monitoriado pelo git;
+O arquivo anterior sera excluido.
+
+-git checkout -- (nome do arquivo) PC: desfazer
+O arquivo modificado pode ser retornado ao estado original (estado que o arquivo esta no repositório);
+Apos a utilização do mesmo, o arquivo sai do staging (git add);
+Caso seja feita uma proxima alteração, ele entra em staging novamente.
+Atenção: O arquivo modificado será perdido, ou seja, as alterações feitas serão descartadas.
 
 
 
