@@ -1,5 +1,3 @@
-
-
 CONCEITOS IMPORTANTES
 
 Changes to be committed
@@ -37,15 +35,19 @@ Ou seja, se não for adicionar ele não estará no controle de versão;
 É interessante utilizar este comando de tempos em tempos para não perder algo por descuido.
 
 - git commit -m (git de mensagem) - “salva”
+             -a (Pula o git add - apenas para arquivos que ja estao versionados)
 As alterações salvas do projeto são realizadas por: git commit;
 Podemos commitar arquivo específicos ou varios de uma vez com a flag -a;
-É uma boa prática enviar umar mensagem a cada commit, com as alterações que foram feitas;
-A mensagem pode ser adicionada com a flag -a;
+É uma boa prática enviar umar mensagem a cada commit, com as alterações que foram feitas
 
 - git push -u (atualiza o repositório) “envia”
 Quando finalizamos uma funcionalidade nova, enviamos o codigo ao repositório remoto, que é código-fonte;
 Esta ação e feita pelo git push;
 Apos esta ação, o código do servidor será atualizado baseando-se no código local enviado;
+
+- git pull  
+É comum tambem ter que sicronizar o local com as mudanças do remoto, esta ação é feita pelo git pull.
+Apos o comando, serão buscada atualizações, se econtradas elas serão unidas ao código atual existente na nossa maquina.
 
 - git branch -M main (cria a branch principal)
 
