@@ -1,4 +1,5 @@
-Palavras-chave: Status, criar, adicionar, salvar, enviar, sincronizar, clonar, remover, log, mover, renomear, vim, desfazer, ignorar;
+Palavras-chave: Status, criar, adicionar, salvar, enviar, sincronizar, clonar, remover, 
+log, mover, renomear, vim, desfazer, ignorar, branch, stash, tag;
 
 
 CONCEITOS IMPORTANTES
@@ -17,6 +18,28 @@ Arquivos novos, que o Git ainda não conhece.
 Só entram no controle de versão se você usar git add.
 Enquanto isso, o Git ignora esses arquivos.
 
+Branch
+Branch é a forma que o git separa as versões do projeto;
+Quando um projeto é criado, ele inicia na branch master/main;
+Geralmente, cada nova feature de projeto fica em um branch separado;
+Após a finalização das alterações, os branches são unidos para ter o código-fonte final;
+Sempre que se cria um branch, ele é baseado na branch atual;
+Boas praticas branchs:
+- Somente o responsavel pelo projeto deve fazer merge na branch main/master;
+- O dev deve solicitar um puull request para que o responsavel faça o merge;  
+- Cada nova feature deve ser desenvolvida em um branch separado;
+- Após o merge, o branch pode ser deletado;
+- Nunca trabalhe diretamente na branch main/master;
+- Sempre mantenha a branch main/master atualizada com o repositório remoto;
+- Sempre crie branches com nomes significativos, relacionados a feature que está sendo desenvolvida;
+- Sempre atualizar sua branch com a main/master antes de fazer o merge;
+
+
+
+FLAGS GIT
+
+-d ou --delete - Geralmente usado com git branch para deletar um branch;
+-b - Usado com git checkout para criar um novo branch e já mudar para ele;
 
 
 
@@ -91,11 +114,22 @@ O arquivo anterior sera excluido.
 O arquivo modificado pode ser retornado ao estado original (estado que o arquivo esta no repositório);
 Apos a utilização do mesmo, o arquivo sai do staging (git add);
 Caso seja feita uma proxima alteração, ele entra em staging novamente.
+
+-git checkout "-b" <nome do branch> PC: Branch
+Podemos mudar para outro branch utilizando o comando git checkout <nome do branch>;
+Para criar outro branch e já mudar para ele, usamos a flag -b;
+Atenção: Alterando o branch, podemos levar alterações que não foram commitadas junto;
+Por exemplo, ao alterar um arquivo e não der commit ao mudar de branch, a alteração feita no arquivo 
+será levada para o novo branch e o antigo branch permanecerá sem alterações.
+
+
+
 Atenção: O arquivo modificado será perdido, ou seja, as alterações feitas serão descartadas.
 
-git reset --hard origin/main (Volta a versão que esta no repositório)PC: desfazer
+-git reset --hard origin/main (Volta a versão que esta no repositório remoto)PC: desfazer
 Todas as alterações commitadas e também as pendentes seão excluidas;
 Ao contrario do git checkout que desfaz apenas o arquivo do staging, o git reset --hard desfaz tudo, inclusive commits;
+
 
 - .gitignore PC: ignorar
 Devemos criar um arquivo chamado .gitignore para ignorar arquivos no git;
@@ -104,6 +138,64 @@ Devemos inserir um arquivo chamado .gitignore na raiz do projeto;
 Nele podemos inserir todos os arquivos qeu não devem entrar no versionamento;
 Isso é util para arquivos gerados automaticamente ou arquivos que contêm informações sensíveis (senhas, chaves de API, etc).
 
+
+-git branch (nome do branch) PC: branch
+Para visualizar as branches disponiveis no projeto, usamos o comando git branch;
+Ele lista todos os branches existentes no projeto;
+O branch que estamos atualmente aparece com um asterisco (*) ao lado do nome;
+Para criar uma nova branch, usamos o comando git branch (nome do branch);
+
+-git branch -d (nome do branch) PC: branch
+Podemos deletar um branch com a flag -d ou --delete,
+não é comum deletar um branch, normalmente os branches são mantidos para histórico do projeto;
+Geralmente se usa o delete quando um branch foi criado por engano ou não é mais necessário;
+
+-git merge (nome do branch) PC: branch
+O codigo de dois branches distintos pode ser unido pelo comango git merge;
+Normalmente é por meio dele que recebemos as atualizações de outros devs;
+
+
+-git stash PC: stash
+Podemos salvar as modificações atuais para prosseguir com uma outra abordagem de solução e não perder o codigo;
+Apos o comando o branch sera resetado para sua versao de acordo com o repositório;
+É como se fosse uma lixeira temporária;
+
+- git stash list
+Mostra a lista de stashes salvos;
+
+- git stash <numero stash>
+Para recuperar um stash especifico;
+Desta maneira podemos continuar de onde paramos com os arquivos adicionados ao stash;
+
+- git stash show -p <numero stash>
+Mostra as modificações feitas no stash especifico;
+
+- git stash apply <numero stash>
+Aplica as alterações da stash especificada no branch atual;
+
+- git stash drop <numero stash>
+Remove a stash especifica da lista de stashes;
+
+- git stash clear
+Remove todas as stashes salvas;
+
+
+- git tag PC: tag
+Mostra todas as tags criadas no projeto;
+
+- git tag -a <nome da tag> -m "mensagem da tag"
+A tag é diferente do stash, serve como um checkpoint de um branch;
+É utilizada para demarcar estagios do desenvolvimento de algum recurso;
+É interessante pra tag "commitar" as alterações;
+
+- git show <nome da tag>
+Mostra as informações da tag especificada;
+
+- git checkout <nome da tag>
+Podemos mudar para o estado do projeto de acordo com a tag especificada;
+
+- git push origin <nome da tag> ou --tags
+Envia a tag especificada ou todas as tags para o repositório remoto;
 
 
 
