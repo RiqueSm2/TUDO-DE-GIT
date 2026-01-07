@@ -89,6 +89,10 @@ As alterações salvas do projeto são realizadas por: git commit;
 Podemos commitar arquivo específicos ou varios de uma vez com a flag -a;
 É uma boa prática enviar umar mensagem a cada commit, com as alterações que foram feitas
 
+git commit --amend
+Para reescrever a mensagem do último commit;
+Útil para corrigir erros de digitação ou adicionar informações adicionais à mensagem do commit recente;
+
 
 - git push -u (atualiza o repositório) “envia” -PC: enviar
 Quando finalizamos uma funcionalidade nova, enviamos o codigo ao repositório remoto, que é código-fonte;
