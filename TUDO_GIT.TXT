@@ -34,6 +34,16 @@ Boas praticas branchs:
 - Sempre crie branches com nomes significativos, relacionados a feature que está sendo desenvolvida;
 - Sempre atualizar sua branch com a main/master antes de fazer o merge;
 
+Commit
+Commits sem sentindo atrapalham o projeto;
+Precisamos padronizar os commits para que o projeto cresça de forma saudavel,
+tambem no versionamento, isso ajuda em:
+Review do pull request;
+Melhoria dos logs em git log;
+Manutenção do projeto(voltar codigo, por exemplo);
+
+
+
 
 
 FLAGS GIT
@@ -74,6 +84,7 @@ Podemos commitar arquivo específicos ou varios de uma vez com a flag -a;
 Quando finalizamos uma funcionalidade nova, enviamos o codigo ao repositório remoto, que é código-fonte;
 Esta ação e feita pelo git push;
 Apos esta ação, o código do servidor será atualizado baseando-se no código local enviado;
+Serve também para enviar as atualizacoes de um branch especifico para outro dev.
 
 
 - git pull (sincorniza o repositório remoto com o local) “sincroniza” -PC: sincronizar
@@ -105,17 +116,26 @@ Apenas quando for adicionado novamente com o git add.
 Podemos acessar um log de modificações feitas no projeto com o git log;
 Voce receberá um informação dos commits realizados no projeto até então.
 
--git mv (nome do arquivo antigo) (nome do arquivo novo ou diretorio pasta nova) PC: mover, renomear
+-git shortlog -> nos da um log resumido do projeto;
+Cada commit sera unido por nome do autor;
+Podemos entao saber quais commit foram enviados ao projeto e por quem;
+
+-git reflog
+Ele vai mapaear todos os seus passos no repositorio, até uma mudança de branch é inserida neste log;
+Os reflogs ficam salvos até expirar, o tempo de expiração padrão é 30 dias;
+
+
+- git mv (nome do arquivo antigo) (nome do arquivo novo ou diretorio pasta nova) PC: mover, renomear
 Com o git mv podemos renomear arquivos e mover arquivos de pastas;
 E isso fará com que este novo arquivo seja monitoriado pelo git;
 O arquivo anterior sera excluido.
 
--git checkout (nome do arquivo) PC: desfazer
+- git checkout (nome do arquivo) PC: desfazer
 O arquivo modificado pode ser retornado ao estado original (estado que o arquivo esta no repositório);
 Apos a utilização do mesmo, o arquivo sai do staging (git add);
 Caso seja feita uma proxima alteração, ele entra em staging novamente.
 
--git checkout "-b" <nome do branch> PC: Branch
+- git checkout "-b" <nome do branch> PC: Branch
 Podemos mudar para outro branch utilizando o comando git checkout <nome do branch>;
 Para criar outro branch e já mudar para ele, usamos a flag -b;
 Atenção: Alterando o branch, podemos levar alterações que não foram commitadas junto;
@@ -126,8 +146,9 @@ será levada para o novo branch e o antigo branch permanecerá sem alterações.
 
 Atenção: O arquivo modificado será perdido, ou seja, as alterações feitas serão descartadas.
 
--git reset --hard origin/main (Volta a versão que esta no repositório remoto)PC: desfazer
-Todas as alterações commitadas e também as pendentes seão excluidas;
+- git reset --hard origin/main (Volta a versão que esta no repositório remoto)PC: desfazer
+- git reset --hard <hash do commit> (Volta a versão do commit especifico)PC: desfazer
+Todas as alterações commitadas e também as pendentes serão excluidas;
 Ao contrario do git checkout que desfaz apenas o arquivo do staging, o git reset --hard desfaz tudo, inclusive commits;
 
 
@@ -139,23 +160,51 @@ Nele podemos inserir todos os arquivos qeu não devem entrar no versionamento;
 Isso é util para arquivos gerados automaticamente ou arquivos que contêm informações sensíveis (senhas, chaves de API, etc).
 
 
--git branch (nome do branch) PC: branch
+- git branch (nome do branch) PC: branch
 Para visualizar as branches disponiveis no projeto, usamos o comando git branch;
 Ele lista todos os branches existentes no projeto;
 O branch que estamos atualmente aparece com um asterisco (*) ao lado do nome;
 Para criar uma nova branch, usamos o comando git branch (nome do branch);
 
--git branch -d (nome do branch) PC: branch
+- git branch -d (nome do branch) PC: branch
 Podemos deletar um branch com a flag -d ou --delete,
 não é comum deletar um branch, normalmente os branches são mantidos para histórico do projeto;
 Geralmente se usa o delete quando um branch foi criado por engano ou não é mais necessário;
 
--git merge (nome do branch) PC: branch
+- git show PC: branch
+Mostra informações detalhadas sobre o branch atual, incluindo o último commit e outras informações relevantes;
+As modificações de arquivos entre cada commit tambem sao exibidas;
+
+- git diff <nome do branch> -> branch atual vs outro branch; PC: branch
+- git diff -> alterações locais vs último commit;
+- git diff Head: <arquivo> <arquivo> -> comparação de arquivo no repositório vs arquivo local;
+ O comando git diff serve para exibir as diferenças de um branch;
+ Quando utilizado, as diferenças do branch atual com o remoto serão exibidas no terminal;
+ Podemos também comparar dois branches específicos, utilizando o comando:
+ git diff <branch1> <branch2>
+
+Private Branch:
+São branches que não serão compartilhados no repositorio, entao podemos colocar qualquer commit;
+Ao fim da solução, podemos fazer um rebase;
+O comando git sera:
+git rebase <branch atual> <branch privado> -i
+Escolhemos os branches para excluir (squash) - trocar a palavre pick por squash
+e para renomear com (reword);
+ESC e depois :x! para salvar;
+
+- git rebase --abort
+Para cancelar o rebase e voltar ao estado anterior;
+
+
+- git merge (nome do branch) PC: branch
 O codigo de dois branches distintos pode ser unido pelo comango git merge;
 Normalmente é por meio dele que recebemos as atualizações de outros devs;
 
+- git merge origin
+O comando git merge origin é usado para mesclar as alterações do repositório remoto com o branch local atual.
 
--git stash PC: stash
+
+- git stash PC: stash
 Podemos salvar as modificações atuais para prosseguir com uma outra abordagem de solução e não perder o codigo;
 Apos o comando o branch sera resetado para sua versao de acordo com o repositório;
 É como se fosse uma lixeira temporária;
@@ -198,6 +247,53 @@ Podemos mudar para o estado do projeto de acordo com a tag especificada;
 Envia a tag especificada ou todas as tags para o repositório remoto;
 
 
+- git fetch -a 
+Branches novas sao criadas a todo tempo e seu git pode não estar mapeando eles;
+Com o comando git fetch -a, voce atualiza seu git local com todas as branches novas do repositório remoto;  
+Este comando é util para utilizar o branch de algum outro dev do time;
+Para adicionar o branch novo ao seu git local, use o comando:
+git checkout -b <nome do branch> 
+
+
+- git remote 
+Com o git remote, podemos fazer algumas açoes como: adicionar um repo para trackear ou remover;
+- git remote add <nome do repo> <link do repo> - Adiciona um repositório remoto com o nome especificado (normalmente origin);
+- git remote rm <nome do repo> - Remove o repositório remoto com o nome;
+- git remote -v (mostra a origin atual)
+
+
+- git submodule add <link do repositório> <nome> -> Adiciona um submódulo ao repositório atual;
+- git submodule -> para verificar os submódulos existentes
+- git push --recurse-submodules=on-demand -> para enviar as alterações dos submódulos junto com o repositório principal;
+Submodulo é a maneira que temos de possuir dois ou mais projetos em um so repositório git;
+Podemos adicionar uma dependencia ao nosso projeto atual, porém mantendo suas estruturas separadas;
+É como se fosse uma biblioteca externa que o projeto utiliza;
+
+-git clean
+O comando git clean vai verificar e limpar arquivos que não estao sendo ttrackeados, ou seja
+todos que voce nao utilizou git add;
+Utilizado para arquivos que são gerados automaticamente, por exemplo, e atrapalham a visualização do que é 
+realmente importante.
+
+-git gc
+É uma abreviação de "garbage collection" (coleta de lixo);
+Ele identifica arquivos que não são mais necessarios e os exclui;
+Isso fara com que o repositorio seja otimizado em questoes de performance;
+
+-git fsck
+É uma abreviação de "file system check" (verificação do sistema de arquivos);
+Está instrução verifica a integriddade de arquivos e sua conectividade;
+Verificando assim, possíveis corrupções em arquivos;
+Comando de rotina, utilizado para ver se esta tudo certo com nossos arquivos;
+
+-git archive 
+Com o comando git archive podemos transformar o repo em um arquivo compactado, por exemplo:
+-git archive --format<formato> --output <nome do arquivo> <branch>
+Exemplo:
+-git archive --format zip --output master_files.zip master
+E então a master vai estar zipada no arquivo master_files.zip;
+
+
 
 
 
@@ -205,6 +301,7 @@ MACETES
 
  - M1 - (O git usa o Vim como padrão)
 Se você der um commit -a e não colocar uma mensagem, aparecera algo como:
+
 
 # Please enter the commit message for your changes. Lines starting
 # with '#' will be ignored, and an empty message aborts the commit.
