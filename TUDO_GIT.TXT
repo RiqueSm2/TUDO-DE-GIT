@@ -42,6 +42,16 @@ Review do pull request;
 Melhoria dos logs em git log;
 Manutenção do projeto(voltar codigo, por exemplo);
 
+Boas mensagens de commit:
+-Separar assunto do corpo da mensagem;
+-Assunto max. com 50 caracteres;
+-Assunto com letra inicial maiúscula;
+-Corpo com maximo 72 caracteres;
+-Explicar o por que e como do commit, e não como o código foi escrito;
+Ex.:
+git commit -a - m "Criada funcao de adicao de produto
+(espaço do assunto)
+a função foi criada para os novos clientes, não cadastrado, conseguirem adicionar produtos ao carrinho antes do login"
 
 
 
@@ -187,9 +197,13 @@ Private Branch:
 São branches que não serão compartilhados no repositorio, entao podemos colocar qualquer commit;
 Ao fim da solução, podemos fazer um rebase;
 O comando git sera:
-git rebase <branch atual> <branch privado> -i
+git rebase -i funcionalidade_a (Devemos estar no branch privado)  
+ou
+git rebase <branch_base> <branch_alvo> -i (menos comum e mais confusa)
+
 Escolhemos os branches para excluir (squash) - trocar a palavre pick por squash
 e para renomear com (reword);
+Atenção: O primeiro commit sempre deve ser pick;
 ESC e depois :x! para salvar;
 
 - git rebase --abort
