@@ -1,0 +1,48 @@
+Code
+-Na aba Code teremos acesso a informações importantes, como o próprio código fonte;
+-Podemos também checar uma documentação do projeto pelo README.md;
+-Os detalhes da licença do projeto;
+-Criar branches, adicionar arquivos;
+
+Issue
+-Na aba Issue podemos criar tarefas ou póssíveos bugs do projeto;
+-Interessante para a organização se manter ciente do que ainda precisa fazer ou corrigir;
+-Normalmente há um padrão para criação de novos issues;
+-Podemos utilizar o Markdown no texto também (iguao o README.md);
+-A issue deve ter uma label e também um responsavel;
+
+Pull request
+-Na aba Pull Request é onde os colaboradores do projeto enviam código para resolver as issues ou adicionar
+novas funcionalidades ao projeto;
+-A ideia é que o código não seja inserido direto na master e sim passe por um pull request para ser analisado; 
+-O pull request vem de um novo branch, criado no projeto e enviado para o repo, com o incremeto de codigo;
+
+Actions
+-É onde se cria as automatizações de deploy com integração em outros serviços;
+-Incluindo CI/CD (Continuos Integration / Continuos Development);
+-Ou seja, podemos criar uma rotina de atualizar a master automaticamente e outros processos;
+
+Projects
+-Na aba Projects podemos criar um projeto e utilizar um quadro de tarefas;
+-Este processo é conhecido como Kanban e pode ajudar a organizar seu time, criando notas que podem virar issues;
+-Estrutura interessante: Backlog, Retorno de qualidade, Desenvolvimento, Teste, Finalizadas;
+
+Wiki
+-Na aba Wiki, podemos criar uma documentação mais extensa para o projeto;
+-Como descrever funcionalidades,bugs conhecidos e não solucionados, entre outras funções;
+-A ideia é que seja um repositorio de conhecimento sobre o projeto e centralizar as informações em um lugar so;
+
+Insights
+-Na aba Insights temos informações detalhadas do projeto, como:
+-Quem são os contribuidores, commits, forks e muito mais;
+-Interessante para entender como o projeto esta andando e a sua evolução desde o inicio;
+
+Settings
+-É onde podemos alterar o nome do repo ou remover/adicionar features;
+-E também é nela que adicionamos colaboradores ao projeto;
+-O repositorio pode ser removido nesta aba;
+
+Gist
+-Gists são pequenos blocos de codigo que podem ser hospedado no GitHub tambem;
+-Você pode armazenar uma solução que achou interessante para algum problema e não quer perder, por exemplo;
+-No fim das contas o Gist acaba sendo um repositorio tambem que vai ter uma solução para um problema bem especifico;

@@ -1,0 +1,269 @@
+PALAVRAS-CHAVE:
+Status, criar, adicionar, salvar, enviar, sincronizar, clonar, remover, log, mover, renomear, vim, desfazer, ignorar, branch, stash, tag
+
+==================================================
+STATUS / VISUALIZAÇÃO
+=====================
+
+* git status (mostra o status do git) PC: Status
+  As mudanças do projeto podem ser verificadas com o git status;
+  Este comando é utilizado muito frequentemente;
+  Aqui são mapeadas todas as alterações do projeto;
+  Como arquivos não monitorados e arquivos modificados;
+  Podemos também dizer que é a diferença do que já está enviado ao servidor ou projeto salvo.
+
+* git log PC: log
+  Podemos acessar um log de modificações feitas no projeto com o git log;
+  Você receberá informações dos commits realizados no projeto até então.
+
+* git shortlog
+  Nos dá um log resumido do projeto;
+  Cada commit será unido por nome do autor;
+  Podemos saber quais commits foram enviados ao projeto e por quem.
+
+* git reflog
+  Mapeia todos os seus passos no repositório;
+  Até mudanças de branch são registradas;
+  Os reflogs expiram por padrão em 30 dias.
+
+* git show
+  Mostra informações detalhadas sobre o branch, commit ou tag;
+  As modificações de arquivos também são exibidas.
+
+* git diff
+  Exibe diferenças entre versões do código;
+
+* git diff -> alterações locais vs último commit;
+
+* git diff <branch1> <branch2> -> comparação entre branches;
+
+* git diff HEAD: <arquivo> -> repositório vs arquivo local.
+
+==================================================
+CRIAÇÃO / INICIALIZAÇÃO
+=======================
+
+* git init (cria o arquivo .git) PC: criar
+  Inicializa um repositório Git em um diretório.
+
+* git clone <link do repositório> PC: clonar
+  Baixa um repositório remoto para o computador;
+  Usado quando entramos em um novo projeto.
+
+==================================================
+ADICIONAR / REMOVER / MOVER ARQUIVOS
+====================================
+
+* git add PC: adicionar
+  Adiciona arquivos ao controle de versão;
+  Pode adicionar arquivos específicos ou vários de uma vez.
+
+* git rm <arquivo> PC: remover
+  Remove o arquivo do controle do Git;
+  Só volta a ser monitorado se for adicionado novamente.
+
+* git mv <arquivo_antigo> <arquivo_novo> PC: mover / renomear
+  Move ou renomeia arquivos mantendo o histórico;
+  O arquivo antigo é removido automaticamente.
+
+==================================================
+COMMITS (SALVAR ALTERAÇÕES)
+===========================
+
+* git commit -m "mensagem" PC: salvar
+  Salva as alterações no histórico do projeto;
+  Sempre utilize mensagens claras.
+
+* git commit -a
+  Pula o git add (somente para arquivos já versionados).
+
+* git commit --amend
+  Reescreve a mensagem do último commit;
+  Útil para correções rápidas.
+
+Boas práticas de commit:
+
+* Commits sem sentido atrapalham o projeto;
+* Padronização ajuda no versionamento e manutenção;
+* Mensagens claras facilitam reviews e rollback.
+
+==================================================
+SINCRONIZAÇÃO COM REPOSITÓRIO REMOTO
+====================================
+
+* git push PC: enviar
+  Envia commits locais para o repositório remoto;
+  Atualiza o código do servidor.
+
+* git pull PC: sincronizar
+  Busca e une alterações do repositório remoto;
+  Atualiza o código local com mudanças de outros devs.
+
+* git fetch -a
+  Atualiza todas as branches remotas no repositório local;
+  Útil para acessar branches de outros devs.
+
+==================================================
+CONFIGURAÇÃO DE REPOSITÓRIO REMOTO
+==================================
+
+* git remote add origin <link>
+  Adiciona um repositório remoto.
+
+* git remote rm origin
+  Remove o repositório remoto.
+
+* git remote -v
+  Mostra os repositórios remotos configurados.
+
+==================================================
+BRANCHES
+========
+
+Branch é a forma que o Git separa versões do projeto;
+O projeto inicia na branch main/master;
+Cada feature deve ser desenvolvida em um branch separado.
+
+Boas práticas:
+
+* Nunca trabalhar direto na main/master;
+* Usar pull request para merge;
+* Manter main/master sempre atualizada;
+* Deletar branches após o merge.
+
+Comandos:
+
+* git branch
+  Lista branches existentes.
+
+* git branch <nome>
+  Cria uma nova branch.
+
+* git branch -d <nome>
+  Deleta uma branch.
+
+* git branch -M main
+  Define a branch principal.
+
+* git checkout <branch>
+  Muda para outra branch.
+
+* git checkout -b <branch>
+  Cria e já muda para a branch.
+
+* git merge <branch>
+  Une branches.
+
+* git merge origin
+  Mescla alterações do remoto.
+
+* git rebase -i <branch>
+  Reorganiza commits;
+  Usado para squash e reword.
+
+* git rebase --abort
+  Cancela o rebase.
+
+==================================================
+DESFAZER ALTERAÇÕES
+===================
+
+* git checkout <arquivo> PC: desfazer
+  Descarta alterações locais do arquivo;
+  Volta ao estado do repositório.
+
+* git reset --hard origin/main PC: desfazer
+  Volta para a versão do repositório remoto;
+  Remove commits e alterações pendentes.
+
+* git reset --hard <hash>
+  Volta para um commit específico;
+  Todas as alterações são perdidas.
+
+==================================================
+IGNORAR / LIMPEZA
+=================
+
+* .gitignore PC: ignorar
+  Arquivo que define o que não entra no versionamento;
+  Usado para arquivos automáticos ou sensíveis.
+
+* git clean
+  Remove arquivos não rastreados.
+
+* git gc
+  Otimiza o repositório removendo arquivos desnecessários.
+
+* git fsck
+  Verifica a integridade do repositório.
+
+==================================================
+STASH
+=====
+
+* git stash
+  Salva alterações temporariamente.
+
+* git stash list
+  Lista stashes salvas.
+
+* git stash show -p <numero>
+  Mostra detalhes da stash.
+
+* git stash apply <numero>
+  Aplica a stash no branch atual.
+
+* git stash drop <numero>
+  Remove uma stash específica.
+
+* git stash clear
+  Remove todas as stashes.
+
+==================================================
+TAGS
+====
+
+* git tag
+  Lista tags do projeto.
+
+* git tag -a <nome> -m "mensagem"
+  Cria uma tag anotada;
+  Usada como checkpoint.
+
+* git show <tag>
+  Mostra informações da tag.
+
+* git checkout <tag>
+  Muda o projeto para o estado da tag.
+
+* git push origin <tag> / --tags
+  Envia tags para o repositório remoto.
+
+==================================================
+SUBMODULE
+=========
+
+* git submodule add <link> <nome>
+  Adiciona um submódulo ao projeto.
+
+* git submodule
+  Lista submódulos existentes.
+
+* git push --recurse-submodules=on-demand
+  Envia alterações dos submódulos.
+
+==================================================
+ARQUIVAMENTO
+============
+
+* git archive --format <formato> --output <arquivo> <branch>
+  Gera um arquivo compactado do repositório.
+
+==================================================
+VIM (COMMIT)
+============
+
+* i -> modo de edição
+* ESC -> sair do modo de edição
+* :wq -> salvar e sair
+* :q! -> sair sem salvar
