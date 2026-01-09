@@ -2,7 +2,7 @@ PALAVRAS-CHAVE:
 Status, criar, adicionar, salvar, enviar, sincronizar, clonar, remover, log, mover, renomear, vim, desfazer, ignorar, branch, stash, tag
 
 ==================================================
-STATUS / VISUALIZAÇÃO
+## STATUS / VISUALIZAÇÃO
 =====================
 
 * git status (mostra o status do git) PC: Status
@@ -40,7 +40,7 @@ STATUS / VISUALIZAÇÃO
 * git diff HEAD: <arquivo> -> repositório vs arquivo local.
 
 ==================================================
-CRIAÇÃO / INICIALIZAÇÃO
+## CRIAÇÃO / INICIALIZAÇÃO
 =======================
 
 * git init (cria o arquivo .git) PC: criar
@@ -51,7 +51,7 @@ CRIAÇÃO / INICIALIZAÇÃO
   Usado quando entramos em um novo projeto.
 
 ==================================================
-ADICIONAR / REMOVER / MOVER ARQUIVOS
+## ADICIONAR / REMOVER / MOVER ARQUIVOS
 ====================================
 
 * git add PC: adicionar
@@ -67,7 +67,7 @@ ADICIONAR / REMOVER / MOVER ARQUIVOS
   O arquivo antigo é removido automaticamente.
 
 ==================================================
-COMMITS (SALVAR ALTERAÇÕES)
+## COMMITS (SALVAR ALTERAÇÕES)
 ===========================
 
 * git commit -m "mensagem" PC: salvar
@@ -88,7 +88,7 @@ Boas práticas de commit:
 * Mensagens claras facilitam reviews e rollback.
 
 ==================================================
-SINCRONIZAÇÃO COM REPOSITÓRIO REMOTO
+## SINCRONIZAÇÃO COM REPOSITÓRIO REMOTO
 ====================================
 
 * git push PC: enviar
@@ -104,7 +104,7 @@ SINCRONIZAÇÃO COM REPOSITÓRIO REMOTO
   Útil para acessar branches de outros devs.
 
 ==================================================
-CONFIGURAÇÃO DE REPOSITÓRIO REMOTO
+## CONFIGURAÇÃO DE REPOSITÓRIO REMOTO
 ==================================
 
 * git remote add origin <link>
@@ -117,7 +117,7 @@ CONFIGURAÇÃO DE REPOSITÓRIO REMOTO
   Mostra os repositórios remotos configurados.
 
 ==================================================
-BRANCHES
+## BRANCHES
 ========
 
 Branch é a forma que o Git separa versões do projeto;
@@ -165,7 +165,7 @@ Comandos:
   Cancela o rebase.
 
 ==================================================
-DESFAZER ALTERAÇÕES
+## DESFAZER ALTERAÇÕES
 ===================
 
 * git checkout <arquivo> PC: desfazer
@@ -181,7 +181,7 @@ DESFAZER ALTERAÇÕES
   Todas as alterações são perdidas.
 
 ==================================================
-IGNORAR / LIMPEZA
+## IGNORAR / LIMPEZA
 =================
 
 * .gitignore PC: ignorar
@@ -198,7 +198,7 @@ IGNORAR / LIMPEZA
   Verifica a integridade do repositório.
 
 ==================================================
-STASH
+## STASH
 =====
 
 * git stash
@@ -220,7 +220,7 @@ STASH
   Remove todas as stashes.
 
 ==================================================
-TAGS
+## TAGS
 ====
 
 * git tag
@@ -240,7 +240,7 @@ TAGS
   Envia tags para o repositório remoto.
 
 ==================================================
-SUBMODULE
+## SUBMODULE
 =========
 
 * git submodule add <link> <nome>
@@ -253,14 +253,14 @@ SUBMODULE
   Envia alterações dos submódulos.
 
 ==================================================
-ARQUIVAMENTO
+## ARQUIVAMENTO
 ============
 
 * git archive --format <formato> --output <arquivo> <branch>
   Gera um arquivo compactado do repositório.
 
 ==================================================
-VIM (COMMIT)
+## VIM (COMMIT)
 ============
 
 * i -> modo de edição
