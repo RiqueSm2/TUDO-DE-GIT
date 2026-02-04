@@ -34,7 +34,7 @@ __Imagem Externa__
 # Apenas no GitHub
 
 ## Código
-__```Nome_linguagem__
+__"```NomeLinguagem"__
 
 ``` Python
 print("Hello World")
